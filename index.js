@@ -1,7 +1,7 @@
 const { ApolloServer, gql } = require("apollo-server");
 const mongoose = require("mongoose");
 
-//test
+//test without db
 
 const books = [
   {
@@ -13,7 +13,6 @@ const books = [
     author: "Michael Crichton"
   }
 ];
-//test
 
 const typeDefs = gql`
   type Book {
@@ -21,8 +20,17 @@ const typeDefs = gql`
     author: String
   }
 
+  input BookInput {
+    title: String
+    author: String
+  }
+
   type Query {
     getBooks: [Book]!
+  }
+
+  type Mutation {
+    addBook(bookInput: BookInput): Book!
   }
 `;
 
@@ -31,8 +39,23 @@ const resolvers = {
     getBooks: () => {
       return books;
     }
+  },
+
+  Mutation: {
+    addBook: (_, { bookInput: { title, author } }) => {
+      // destructuring
+      const data = {
+        title,
+        author
+      };
+
+      books.push(data);
+      return books;
+    }
   }
 };
+
+//test
 
 const server = new ApolloServer({ typeDefs, resolvers });
 
