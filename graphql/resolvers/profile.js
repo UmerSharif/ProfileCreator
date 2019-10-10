@@ -1,31 +1,24 @@
-const books = [
-  {
-    title: "Harry Potter and the Chamber of Secrets",
-    author: "J.K. Rowling"
-  },
-  {
-    title: "Jurassic Park",
-    author: "Michael Crichton"
-  }
-];
+const Profile = require("../../models/Profile");
 
 module.exports = resolvers = {
   Query: {
-    getBooks: () => {
-      return books;
+    getProfile: async () => {
+      try {
+        const profile = await Profile.find();
+        return profile;
+      } catch (err) {
+        throw new Error(err);
+      }
     }
   },
 
   Mutation: {
-    addBook: (_, { bookInput: { title, author } }) => {
+    addProfile: (_, { profileInput: { username, imageUrl } }) => {
       // destructuring
       const data = {
-        title,
-        author
+        username,
+        imageUrl
       };
-
-      books.push(data);
-      return books;
     }
   }
 };

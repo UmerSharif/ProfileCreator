@@ -1,21 +1,22 @@
 const { gql } = require("apollo-server");
 
 module.exports = gql`
-  type Book {
-    title: String
-    author: String
+  type Profile {
+    id: ID!
+    username: String!
+    imageUrl: String!
   }
 
-  input BookInput {
-    title: String
-    author: String
+  input ProfileInput {
+    username: String!
+    imageUrl: String!
   }
 
   type Query {
-    getBooks: [Book]!
+    getProfile: [Profile]
   }
 
   type Mutation {
-    addBook(bookInput: BookInput): Book!
+    addProfile(profileInput: ProfileInput): Profile!
   }
 `;
