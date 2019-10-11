@@ -13,12 +13,17 @@ module.exports = resolvers = {
   },
 
   Mutation: {
-    addProfile: (_, { profileInput: { username, imageUrl } }) => {
-      // destructuring
-      const data = {
+    addProfile: async (_, { profileInput: { username, imageUrl } }) => {
+      const newProfile = new Profile({
         username,
         imageUrl
-      };
+      });
+      try {
+        const newProfileResult = await newProfile.save();
+        return newProfileResult;
+      } catch (err) {
+        throw new Error(err);
+      }
     }
   }
 };
