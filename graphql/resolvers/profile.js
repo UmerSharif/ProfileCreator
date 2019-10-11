@@ -2,7 +2,7 @@ const Profile = require("../../models/Profile");
 
 module.exports = resolvers = {
   Query: {
-    getProfile: async () => {
+    getProfiles: async () => {
       try {
         const profile = await Profile.find();
         return profile;

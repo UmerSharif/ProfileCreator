@@ -12,8 +12,27 @@ module.exports = gql`
     imageUrl: String!
   }
 
+  type User {
+    id: ID!
+    email: String!
+    token: String!
+    username: String!
+  }
+
+  input RegisterInput {
+    username: String!
+    email: String!
+    password: String!
+    confirmPassword: String!
+  }
+
+  input LoginInput {
+    username: String!
+    password: String!
+  }
+
   type Query {
-    getProfile: [Profile]
+    getProfiles: [Profile]
   }
 
   type Mutation {
