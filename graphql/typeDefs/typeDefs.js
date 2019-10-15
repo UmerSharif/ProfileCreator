@@ -36,6 +36,6 @@ module.exports = gql`
   }
 
   type Mutation {
-    addProfile(profileInput: ProfileInput): Profile!
+    addProfiles(profileInput: ProfileInput): Profile!
   }
 `;

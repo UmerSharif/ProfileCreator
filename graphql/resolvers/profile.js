@@ -13,7 +13,7 @@ module.exports = resolvers = {
   },
 
   Mutation: {
-    addProfile: async (_, { profileInput: { username, imageUrl } }) => {
+    addProfiles: async (_, { profileInput: { username, imageUrl } }) => {
       const newProfile = new Profile({
         username,
         imageUrl
