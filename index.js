@@ -1,6 +1,6 @@
 const { ApolloServer, gql } = require("apollo-server");
 const typeDefs = require("./graphql/typeDefs/typeDefs");
-const resolvers = require("./graphql/resolvers/profile");
+const resolvers = require("./graphql/resolvers/resolvers");
 const mongoose = require("mongoose");
 
 const { MONGODB } = require("./dbconfig");

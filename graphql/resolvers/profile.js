@@ -1,6 +1,6 @@
 const Profile = require("../../models/Profile");
 
-module.exports = resolvers = {
+module.exports = {
   Query: {
     getProfiles: async () => {
       try {
