@@ -33,6 +33,7 @@ module.exports = gql`
 
   type Query {
     getProfiles: [Profile]
+    getUsers: [User]
   }
 
   type Mutation {
