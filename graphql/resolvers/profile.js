@@ -1,4 +1,5 @@
 const Profile = require("../../models/Profile");
+const { Auth } = require("../../utils/Auth");
 
 module.exports = {
   Query: {
@@ -13,10 +14,20 @@ module.exports = {
   },
 
   Mutation: {
-    addProfiles: async (_, { profileInput: { username, imageUrl } }) => {
+    addProfiles: async (
+      _,
+      { profileInput: { displayName, imageUrl } },
+      context
+    ) => {
+      const user = Auth(context);
+      if (!user) {
+        throw new Error("Authentication Failed..!");
+      }
       const newProfile = new Profile({
-        username,
-        imageUrl
+        displayName,
+        imageUrl,
+        username: user.username,
+        user: user.id
       });
       try {
         const newProfileResult = await newProfile.save();

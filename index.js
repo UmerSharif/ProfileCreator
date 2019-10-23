@@ -5,7 +5,13 @@ const mongoose = require("mongoose");
 
 const { MONGODB } = require("./dbconfig");
 
-const server = new ApolloServer({ typeDefs, resolvers });
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  context: ({ req }) => {
+    return { req };
+  }
+});
 
 const port = process.env.PORT || 5000;
 

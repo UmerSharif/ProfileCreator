@@ -5,10 +5,11 @@ module.exports = gql`
     id: ID!
     username: String!
     imageUrl: String!
+    displayName: String!
   }
 
   input ProfileInput {
-    username: String!
+    displayName: String!
     imageUrl: String!
   }
 
