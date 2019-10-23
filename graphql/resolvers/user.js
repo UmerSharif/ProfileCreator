@@ -35,5 +35,31 @@ module.exports = {
       );
       return { ...res._doc, id: res._id, token };
     }
+  },
+  // Login resolver
+  loginUser: async (_, { loginInput: { username, password } }) => {
+    const user = await User.findOne({ username });
+
+    if (!user) {
+      console.log("User does not exist..!");
+    }
+
+    const checkPassword = await bcrypt.compare(password, user.password);
+
+    if (!checkPassword) {
+      console.log("Incorrect Password..!");
+    }
+
+    const token = jwt.sign(
+      {
+        id: user.id,
+        email: user.email,
+        username: user.username
+      },
+      SECRET_KEY,
+      { expiresIn: "1hr" }
+    );
+
+    return { ...user._doc, id: user._id, token };
   }
 };

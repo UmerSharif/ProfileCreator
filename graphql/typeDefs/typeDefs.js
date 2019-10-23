@@ -38,5 +38,6 @@ module.exports = gql`
   type Mutation {
     addProfiles(profileInput: ProfileInput): Profile!
     registerUser(registerInput: RegisterInput): User!
+    loginUser(loginInput: LoginInput): User!
   }
 `;
