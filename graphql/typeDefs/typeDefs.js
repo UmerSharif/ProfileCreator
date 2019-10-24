@@ -6,11 +6,21 @@ module.exports = gql`
     username: String!
     imageUrl: String!
     displayName: String!
+    title: String!
+    about: String!
+    facebook: String!
+    github: String!
+    linkedin: String!
   }
 
   input ProfileInput {
     displayName: String!
     imageUrl: String!
+    title: String!
+    about: String!
+    facebook: String!
+    github: String!
+    linkedin: String!
   }
 
   type User {

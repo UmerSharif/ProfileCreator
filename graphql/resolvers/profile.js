@@ -17,7 +17,17 @@ module.exports = {
   Mutation: {
     addProfiles: async (
       _,
-      { profileInput: { displayName, imageUrl } },
+      {
+        profileInput: {
+          displayName,
+          imageUrl,
+          title,
+          about,
+          facebook,
+          github,
+          linkedin
+        }
+      },
       context
     ) => {
       const user = Auth(context);
@@ -27,6 +37,11 @@ module.exports = {
       const newProfile = new Profile({
         displayName,
         imageUrl,
+        title,
+        about,
+        facebook,
+        github,
+        linkedin,
         username: user.username,
         user: user.id
       });
@@ -51,7 +66,7 @@ module.exports = {
           return "Profile delete successfully.";
         } else {
           throw new AuthenticationError(
-            "You are not the user of this post...!"
+            "You are not authorize to delete this profile...!"
           );
         }
       } catch (err) {
