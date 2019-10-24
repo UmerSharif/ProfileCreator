@@ -1,6 +1,8 @@
 const User = require("../../models/User");
 const { SECRET_KEY } = require("../../dbConfig");
 
+const { UserInputError } = require("apollo-server");
+
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
@@ -22,7 +24,7 @@ module.exports = {
     ) => {
       const user = await User.findOne({ username });
       if (user) {
-        console.log("user already exist..");
+        throw new UserInputError("Username is already taken..!");
       }
       password = await bcrypt.hash(password, 12);
 
