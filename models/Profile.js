@@ -9,6 +9,7 @@ const profileSchema = new Schema({
   facebook: String,
   github: String,
   linkedin: String,
+  profileType: String,
   user: {
     type: Schema.Types.ObjectId,
     ref: "User"

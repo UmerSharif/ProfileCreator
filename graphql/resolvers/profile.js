@@ -25,7 +25,8 @@ module.exports = {
           about,
           facebook,
           github,
-          linkedin
+          linkedin,
+          profileType
         }
       },
       context
@@ -42,6 +43,7 @@ module.exports = {
         facebook,
         github,
         linkedin,
+        profileType,
         username: user.username,
         user: user.id
       });

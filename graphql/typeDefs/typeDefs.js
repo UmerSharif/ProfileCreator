@@ -11,6 +11,7 @@ module.exports = gql`
     facebook: String!
     github: String!
     linkedin: String!
+    profileType: String!
   }
 
   input ProfileInput {
@@ -21,6 +22,7 @@ module.exports = gql`
     facebook: String!
     github: String!
     linkedin: String!
+    profileType: String!
   }
 
   type User {
