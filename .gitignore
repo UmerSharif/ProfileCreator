@@ -23,3 +23,5 @@ yarn-debug.log*
 yarn-error.log*
 
 dbConfig.js
+
+client/node_modules
