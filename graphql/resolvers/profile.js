@@ -1,5 +1,5 @@
 const Profile = require("../../models/Profile");
-const { Auth } = require("../../utils/Auth");
+const Auth  = require("../../utils/Auth");
 
 module.exports = {
   Query: {
