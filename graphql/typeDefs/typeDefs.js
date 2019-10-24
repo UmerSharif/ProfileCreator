@@ -41,5 +41,6 @@ module.exports = gql`
     addProfiles(profileInput: ProfileInput): Profile!
     registerUser(registerInput: RegisterInput): User!
     loginUser(loginInput: LoginInput): User!
+    deleteProfile(profileId: ID!): String!
   }
 `;
