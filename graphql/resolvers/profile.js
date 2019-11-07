@@ -6,8 +6,8 @@ module.exports = {
   Query: {
     getProfiles: async () => {
       try {
-        const profile = await Profile.find();
-        return profile;
+        const profiles = await Profile.find();
+        return profiles;
       } catch (err) {
         throw new Error(err);
       }
