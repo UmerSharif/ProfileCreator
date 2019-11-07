@@ -10,10 +10,11 @@ export default function Home() {
   return (
     <div>
       <h1>Profiles</h1>
-      {data.getProfiles.map(pro => (
-        <option key={pro.id} value={pro.username}>
-          {pro.title}
-        </option>
+      {data.getProfiles.map(profile => (
+        <ul key={profile.id}>
+          <li>{profile.username}</li>
+          <li>{profile.title}</li>
+        </ul>
       ))}
     </div>
   );
